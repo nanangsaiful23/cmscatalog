@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
                     ->nullable();
             $table->string("image")
                     ->nullable();
-            $table->string("harga")
+            $table->string("price")
                     ->nullable();
             $table->string("qty")
                      ->nullable();

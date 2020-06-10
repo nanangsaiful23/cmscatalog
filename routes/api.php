@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => 'cors'], function() {
     Route::get('all', 'ProductController@getAllProduct');
+    Route::get('/getimagepro/{directory}/{url}', 'ProductController@getimagepro' );
 });

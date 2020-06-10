@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,11 @@ Route::get('/', function () {
 Route::group(['middleware' => 'cors'], function() {
     Route::get('all', 'ProductController@getAllProduct');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/product', 'ProductController@lihat')->name('product');
+Route::get('/getimagepro/{directory}/{url}', 'ProductController@getimagepro' );
+Route::get('/opencreateproduct', 'ProductController@opencreateproduct')->name('opencreateproduct');
+Route::post('/createproduct', 'ProductController@createproduct')->name('createproduct');
