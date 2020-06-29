@@ -46,7 +46,7 @@ class ProductController extends Controller
         try {
 
             $data = $request->input();
-            dd($request->hasFile('image')); die;
+            // dd($request->hasFile('image')); die;
             if ($request->hasFile('image')) {
                 $data['image'] = $this->resizeImage("product_foto", $request->file('image'));
             }
