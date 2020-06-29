@@ -18,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::get('/downloadformulir', 'HomeController@getDownload')->name('download');
 Route::group(['middleware' => 'cors'], function() {
     Route::get('all', 'ProductController@getAllProduct');
     Route::get('/getimagepro/{directory}/{url}', 'ProductController@getimagepro' );
+
 });

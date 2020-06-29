@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->only(['index']);
     }
 
     /**
@@ -24,5 +25,18 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    public function getDownload()
+{
+    // echo  'a';die;
+    //PDF file is stored under project/public/download/info.pdf
+    $file= public_path(). "/download/Formulir_Pendaftaran_ntnmart.pdf";
+
+
+    $headers = array(
+        'Content-Type : application/pdf',
+);
+// dd ($headers);die;
+return response()->download($file, 'Formulir_Pendaftaran_ntnmart.pdf', $headers);
     }
 }

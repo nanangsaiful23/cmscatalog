@@ -25,3 +25,4 @@ Route::get('/product', 'ProductController@lihat')->name('product');
 Route::get('/getimagepro/{directory}/{url}', 'ProductController@getimagepro' );
 Route::get('/opencreateproduct', 'ProductController@opencreateproduct')->name('opencreateproduct');
 Route::post('/createproduct', 'ProductController@createproduct')->name('createproduct');
+Route::get('/download', 'HomeController@getDownload')->name('download');
